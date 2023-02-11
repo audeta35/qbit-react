@@ -3,11 +3,21 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider, useDispatch } from 'react-redux';
+import appsReducer from './redux/reducers/app';
+import { createStore } from 'redux';
+const root = ReactDOM.createRoot(
+  document.getElementById('root')
+);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const store = createStore(appsReducer)
+
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      {/* <RouterProvider router={routes} /> */}
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 
