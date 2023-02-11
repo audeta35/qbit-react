@@ -12,21 +12,22 @@ function Home() {
   const dispatch = useDispatch();
   const stateData = useSelector((state) => state);
 
-  useEffect(() => {
-    console.log('stateData', stateData);
-    setTimeout(() => {
-      dispatch(SetIsLoadingState(false));
-    }, 500);
-  }, []);
-
   return (
     <Fragment>
       {stateData.isLoading && <Loading />}
       <div className='App'>
         <header className='App-header'>
-          <p>Home</p>
-            
-            <AlignItemsList />
+          <p>
+            Home{' '}
+            {window.sessionStorage.getItem(
+              'token'
+            ) &&
+              `, welcome ${window.sessionStorage.getItem(
+                'token'
+              )}`}
+          </p>
+
+          <AlignItemsList isAdmin={false} />
         </header>
       </div>
     </Fragment>

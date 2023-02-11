@@ -31,7 +31,6 @@ function App() {
   const stateData = useSelector((state) => state);
 
   useEffect(() => {
-    console.log('stateData', stateData);
     setTimeout(() => {
       dispatch(SetIsLoadingState(false));
     }, 500);

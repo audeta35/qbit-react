@@ -12,7 +12,10 @@ import InfoIcon from '@mui/icons-material/Info';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
 import PostAddIcon from '@mui/icons-material/PostAdd';
+
 import { useNavigate } from 'react-router-dom';
+import Toast from '../Alert';
+
 
 const MenuItems = () => {
   const navigate = useNavigate();
@@ -28,7 +31,6 @@ const MenuItems = () => {
         bottom: 20,
         right: 20,
       }}
-      tooltipTitle={'Navigasi'}
       icon={<MenuIcon />}
     >
       <SpeedDialAction
@@ -55,6 +57,14 @@ const MenuItems = () => {
           icon={<LogoutIcon />}
           tooltipOpen
           tooltipTitle={'Logout'}
+          onClick={() => {
+              window.sessionStorage.clear();
+              Toast.fire({
+                icon: 'success',
+                title: `Berhasil Logout`,
+              });
+              redirect('/login')
+          }}
         />
       ) : (
         <SpeedDialAction
