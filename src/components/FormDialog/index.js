@@ -106,7 +106,7 @@ export default function FormDialog({
             Cancel
           </Button>
           <Button onClick={() => submitPayload()}>
-            Subscribe
+            Posting
           </Button>
         </DialogActions>
       </Dialog>
